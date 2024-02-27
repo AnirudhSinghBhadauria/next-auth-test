@@ -1,7 +1,25 @@
+import SignButtons from "@/components/sign-buttons";
+import { authOptions } from "@/lib/next-auth/next-auth-options";
+import { getServerSession } from "next-auth";
 import React from "react";
 
-const Home = () => {
-  return <div>House</div>;
+const Auth = async () => {
+  // const { data: session } = useSession();
+  const session = await getServerSession(authOptions);
+  
+  return (
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+        alignItems: "center",
+        minHeight: "100vh",
+      }}
+    >
+      <SignButtons session={session} />
+    </div>
+  );
 };
 
-export default Home;
+export default Auth;
