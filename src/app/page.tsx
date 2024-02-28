@@ -6,7 +6,7 @@ import React from "react";
 const Auth = async () => {
   // const { data: session } = useSession();
   const session = await getServerSession(authOptions);
-  
+
   return (
     <div
       style={{
@@ -15,6 +15,7 @@ const Auth = async () => {
         justifyContent: "center",
         alignItems: "center",
         minHeight: "100vh",
+        position: "relative",
       }}
     >
       <SignButtons session={session} />
